@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <title>AhorrAdas-E4</title>
+</head>
+<body>
+  <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 HEADER 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+  <header class="h-38 bg-[#212531] flex flex-col ">
+    <!-- ❗❗❗❗❗❗❗❗❗ ATENCION: ANTES DEL PULL REQUEST A DEVELOP Y A MAIN , HACER O ELIMINAR CAMBIOS DEL HEADER ❗❗❗❗❗❗❗❗❗ -->
+    <!-- .......................... LOGO .................... -->
+    <button class="w-[46%] md:w-[39%] flex translate-x-4 translate-y-4 md:translate-x-7 md:translate-y-4">
+      <img class="w-16 md:w-32 rounded-full " src="./style/images/1-logo-ahorradas.jpg" alt="logo de la aplicación" >
+      <span class="text-[#cacccd] text-2xl md:text-5xl -translate-x-5 translate-y-4 md:-translate-x-9 md:translate-y-10">horrADAs</span>
+    </button>
+
+    <!-- .............. BUTTONS (hamburger/close) ............ -->
+    <div id="wrapper-buttons-menu" class="relative ml-[85%]">
+      <button id="button-hamburger-menu">
+        <img class="w-6 md:w-12 -translate-y-7 md:translate-x-5 md:-translate-y-[64px] " src="./style/images/2-menu-hamburger.png" alt="icono menu hamburguesa">
+      </button>
+      
+      <button id="button-close-menu" class="hidden" >
+        <img class="w-4 md:w-9 -translate-y-7 translate-x-1 md:translate-x-7 md:-translate-y-[60px]" src="./style/images/3-close-menu.png" alt="icono de cerrar">
+      </button>
+    </div>
+
+    <!-- ............. NAV / BUTTONS-VIEW-SECTIONS ........... -->
+    <nav class= "hidden w-full">
+
+      <div id="wrapper-buttons-view-sections" class= "bg-[#ffe471] shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] flex flex-col gap-2 pt-3 pb-4 " >
+        
+        <button id="button-view-balance" class= "bg-[#ffe471] h-7 text-start bg-[#ffe471] hover:bg-yellow-100 border-none md:h-14 md:text-4xl md:pl-3 " >
+          <i class="fa-solid fa-money-bill-trend-up m-2 md:m-4 "></i>Balance
+        </button>
+
+        <button id="button-view-categories" class= "h-7 text-start bg-[#ffe471] hover:bg-yellow-100 border-none md:h-14 md:text-4xl md:pl-3" >
+          <i class="fa-solid fa-money-bill-trend-up m-2 md:m-4"></i>Categorias
+        </button>
+
+        <button id="button-view-report" class= "h-7 text-start bg-[#ffe471] hover:bg-yellow-100 border-none md:h-14 md:text-4xl md:pl-3" >
+          <i class="fa-solid fa-money-bill-trend-up m-2 md:m-4"></i>Reportes
+        </button>
+
+      </div>
+    </nav>
+  </header>
+  <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+   
+  <main class="bg-[#c9c9ca] flex flex-col items-center gap-20 ">
+
+    <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 VIEW BALANCE HOME 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+    <section id="view-balance-home" class="w-full flex flex-col items-center">
+      <!-- ******************************** BALANCE ******************************** -->
+      <section id="balance-section" class="w-72 min-h-72  md:w-5/6 bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] p-2 mt-16 mb-14  ">
+        <h2 class="text-3xl font-medium pl-2 mt-3 md:text-4xl md:p-2 md:ml-2">Balance</h2>
+        
+        <!-- ------------------- profits ------------------- -->
+        <div id="wrapper-profits" class="flex justify-between pr-3 mt-12">
+          <p class=" text-2xl pl-2">Ganancias</p>
+          <span id="profits-amount" class="text-green-600 text-2xl font-medium">+$0</span>
+
+        </div>
+
+        <!-- ------------------- expenses ------------------- -->
+        <div id="wrapper-expenses" class="flex justify-between pr-3 mt-5">
+          <p class=" text-2xl pl-2">Gastos</p>
+          <span id="expenses-amount" class="text-red-600 text-2xl font-medium">-$0</span>
+
+        </div>
+
+        <!-- ------------------- total ------------------- -->
+        <div id="wrapper-total" class="flex justify-between pr-3 mt-5">
+          <p class=" text-2xl pl-2">Total</p>
+          <span id="total-amount" class="text-2xl font-medium">$0</span>
+
+        </div>
+        
+      </section>
+      
+      <!-- ******************************** FILTERS ******************************** -->
+      <section id="filters-section" class="w-72 min-h-32 bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] p-2 mb-14  md:w-5/6 ">
+        <h2 class="text-3xl font-medium pl-2 mt-3 md:text-4xl md:p-2 md:ml-2">Filtros</h2>
+        <button id="button-hide-panel-filters" class= "text-blue-600 relative translate-x-40 -translate-y-6 md:h-14 md:text-3xl md:pl-3 md:translate-x-[25rem] md:-translate-y-12" >Ocultar Filtros</button>
+        <button id="button-show-panel-filters" class="hidden text-yellow-600 relative translate-x-40 -translate-y-6  md:h-14 md:text-3xl md:pl-3 md:translate-x-[25rem] md:-translate-y-12">Mostrar filtros</button>
+        
+        <!-- wrapper swhow hide panel filters -->
+        <div id="wrapper-panel-filters">
+          <!-- ------------------- filter-type ------------------- -->
+          <div id="wrapper-filter-type" class="m-2 flex flex-col gap-2">
+            <label for="filter-type">Tipo</label>
+            <select name="" id="filter-type" class="border-4 rounded-xl p-2">
+              <option value="">Todos</option>
+              <option value="">Gasto</option>
+              <option value="profits">Ganancia</option>
+
+            </select>
+          </div>
+          
+          <!-- --------------- filter-categories --------------- -->
+          <div id="wrapper-filter-categories" class="m-2 flex flex-col gap-2">
+            <label for="filter-categories">Categorías</label>
+            <select id="filter-categories" name="filter" class="border-4 rounded-xl p-2">
+              <option class="text-ml bg-yellow-100" value="all">Todas</option>
+              <option class="text-ml bg-yellow-100" value="food">Comida</option>
+              <option class="text-ml bg-yellow-100" value="services">Servicios</option>
+              <option class="text-ml bg-yellow-100" value="outings">Salidas</option>
+              <option class="text-ml bg-yellow-100" value="education">Educación</option>
+              <option class="text-ml bg-yellow-100" value="work">Trabajo</option>
+            </select>
+          </div>
+          
+          <!-- -------------------- flter date -------------------- -->
+          <div id="wrapper-filter-date" class="m-2 flex flex-col gap-2">
+            <label for="filter-date">Desde</label>
+            <input type="date" name="date" id="filter-date" class=" border-4 rounded-xl p-2">
+          </div>
+          
+          <!-- -------------------- filter order -------------------- -->
+          <div id="wrapper-filter-order" class="m-2 flex flex-col gap-2">
+            <label for="filter-order">Ordenar por</label>
+            <select name="order" id="filter-order" class=" border-4 rounded-xl p-2">
+              <option value="">Más reciente</option>
+              <option value="">Menos reciente</option>
+              <option value="">Mayor monto</option>
+              <option value="">Mayor monto</option>
+              <option value="">A/Z</option>
+              <option value="">Z/A</option>
+            </select>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- ******************************** OPERATIONS ******************************** -->
+      <section id="operations-section" class="w-72 min-h-[40rem] bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] flex flex-col gap-7 p-2 mb-9 md:w-5/6 ">
+        <h2 class="text-3xl font-medium pl-4 mt-3 md:text-4xl md:p-2 md:ml-2">Operaciones</h2>
+        <button id="button-new-operation" class= "w-3/4 h-12 text-xl bg-yellow-400 ml-4  md:h-14 md:text-2xl md:pt-2 md:pb-8 md:pl-3 md:ml-2 md:pr-3 rounded-lg" >+ Nueva operación</button>
+        <div id="container-new-operations" class="w-full min-h-72 bg-yellow-200 shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] m-auto"></div>
+
+      </section>
+        
+    </section>
+    <!-- ____________________________***** new operation *****____________________________ -->
+
+    <section id="new-operation" class="hidden w-72 h-[40rem] bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] p-2 mt-16 md:w-5/6 ">
+      <h2 class="text-3xl font-medium pl-2 mt-3">Nueva operación</h2>
+      <form id="form-create-new-operation" action="">
+
+        <!-- ------------- description-new-operation ------------- -->
+        <div id="wrapper-description-new-operation" class="m-2 flex flex-col">
+          <label for="description-new-operation" class="m-1">Descripción</label>
+          <input type="text" name="description-new-operation" id="description-new-operation" class=" border-4 rounded-xl p-2">
+        </div>
+
+        <!-- --------------- amount-new-operation --------------- -->
+        <div id="wrapper-amount-new-operation" class="m-2 flex flex-col ">
+          <label for="amount-new-operation" class="m-1">Monto</label>
+          <input type="number" name="amount-new-operation" id="amount-new-operation" class=" border-4 rounded-xl p-2">
+        </div>
+            
+        <!-- ---------------- type-new-operation ---------------- -->
+        <div id="wrapper-type-new-operation" class="m-2 flex flex-col">
+          <label for="type-new-operation" class="m-1">Tipo</label>
+          <select name="type" id="type-new-operation" class="border-4 rounded-xl p-2">
+            <option value="gasto">Gasto</option>
+            <option value="profits">Ganancia</option>
+          </select>
+        </div>
+        
+        <!-- --------------- categories-new-operation --------------- -->
+        <div id="wrapper-categories-new-operation" class="m-2 flex flex-col ">
+          <label for="categories-new-operation" class="m-1">Categorías</label>
+          <select name="" id="categories-new-operation" class="border-4 rounded-xl p-2">
+            <option value="food">Comida</option>
+            <option value="services">Servicios</option>
+            <option value="outings">Salidas</option>
+            <option value="education">educación</option>
+            <option value="transport">transporte</option>
+            <option value="work">Trabajo</option>
+          </select>
+        </div>
+            
+        <!-- ------------- date-new-operation ------------- -->
+        <div id="wrapper-date-new-operation" class="m-2 flex flex-col ">
+          <label for="date-new-operation" class="m-1">Fecha</label>
+          <input type="date" name="date-new-operation" id="date-new-operation" class=" border-4 rounded-xl p-2" >
+        </div>
+
+        <div id="wrapper-buttons-new-operation" class="flex gap-3 mt-10 ml-14">
+          <button id="button-cancel-new-operation" type="button" class="w-24  h-12 bg-gray-300 border-none rounded-lg p-3">Cancelar</button>
+          <button id="button-add-new-operation" type="submit" class="w-24 h-12 bg-blue-300 border-none rounded-lg p-3">Agregar</button>
+        </div>
+            
+        <!-- connected with operations-view-sections button -->
+      </form>
+    </section>
+    
+    <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 VIEW CATEGORIES 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+    <section id="view-categories" class="hidden w-72 min-h-[40rem] bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] p-2 mt-16  md:w-5/6">
+      <h2 class="text-4xl font-medium pl-2 mt-3">Categorías</h2>
+
+      <!-- ------------- input and button to add categories  ------------- -->
+      <div id="wrapper-name-view-categories" class="w-30 p-3 mt-4 m-auto  flex justify-between items-end">
+        <div id="wrapper-elements-name-categories" class="w-32 flex flex-col gap-2">
+          <label class="font-medium" for="name-categories">Nombre</label>
+          <input id="name-categories" class="w-[109%] h-[44px] rounded-lg border-4 border-blue-300" type="text" name="name">
+        </div>
+        <button id="add-categories" class="w-24 h-[42px] bg-blue-400 border-blue-300 rounded-lg">Agregar</button>
+      </div>
+
+      <!-- ---------------- Categories will be added here ---------------- -->
+      <div  id="container-name-categories"></div>
+
+    </section>
+
+    <!-- ____________________________***** Edit Category Section *****____________________________ -->
+
+    <section id="edit-category-section" class="hidden w-72 h-[20rem] bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] p-2 mt-4 md:w-5/6">
+      <h2 class="text-4xl font-medium pl-2 mt-3">Editar Categoría</h2>
+
+      <div id="wrapper-edit-category-name" class="m-2 flex flex-col gap-2">
+        <label for="edit-category-name">Nombre</label>
+        <input type="text" name="edit-name" id="edit-category-name" class="border-4 p-2" required>
+        
+        <div id="wrapper-buttons-edit-category" class="flex justify-between">
+          <button id="save-category" class="bg-green-500 text-white p-2 rounded">Guardar</button>
+          <button id="cancel-edit" class="bg-red-500 text-white p-2 rounded">Cancelar</button>
+        </div>
+        
+      </div>
+    </section>
+    <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+     
+
+    <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 VIEW REPORT 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+    <section id="view-report" class="hidden w-72 h-[40rem] bg-gray-100 rounded-xl shadow-[1px_20px_16px_1px_rgb(0,0,0,0.3)] p-2 mt-16 md:w-5/6">
+      <h2 class="text-4xl font-medium pl-2 mt-3">Reportes</h2>
+    </section>
+    <!-- 💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥 -->
+  </main>
+  
+  <script src="https://kit.fontawesome.com/e010b89ab9.js" crossorigin="anonymous"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
