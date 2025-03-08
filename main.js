@@ -68,6 +68,15 @@ $("#button-new-operation").addEventListener("click", () => {
   hideElement([$("#view-balance-home"), $("#view-report")])
 })
 
+/* ...... EVENT FUNCIONALITY RETURN NEW OPERATION ...... */
+$("#form-create-new-operation").addEventListener("submit", (e) => {
+  e.preventDefault()
+  hideElement([ $("#new-operation")])
+  showElement([$("#operations-section"), $("#view-balance-home")])
+
+})
+
+
 const $filterCategories = $("#filter-categories")
 
 /* ...... button functionality view categories ...... */
@@ -147,15 +156,17 @@ function addCategory () {
 
 /* 💛💛💛💛💛💛💛💛 */
 function displayCategoriesFilters() {
+  $filterCategories.innerHTML = ""
   const category = features.readLocalStorage("categoria") 
   for (const flor of category) {
     $filterCategories.innerHTML += `<option>${flor.name}</option>`
   }
 }
 
+const $selectCategoriesNewOperation = $("#categories-new-operation");
 function displayCategoriesNewOperation() {
+  $selectCategoriesNewOperation.innerHTML = ""
   const category = features.readLocalStorage("categoria"); 
-  const $selectCategoriesNewOperation = $("#categories-new-operation");
   for (const flor of category) {
     $selectCategoriesNewOperation.innerHTML += `<option>${flor.name}</option>`;
   }
