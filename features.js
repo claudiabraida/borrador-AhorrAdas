@@ -18,16 +18,9 @@ function arrayCategories (array) {
 
 function arrayDataOperations (array) {
   const cosa = readLocalStorage("operations")
-   cosa.push(array)
-   saveLocalStorage("operations", cosa)
- }
-
-// console.log(arrayNewCategories)
-// const objetoCategoria = {
-  
-//   id: crypto.randomUUID(),
-
-// }
+  cosa.push(array)
+  saveLocalStorage("operations", cosa)
+}
 
 export default {
   readLocalStorage,
